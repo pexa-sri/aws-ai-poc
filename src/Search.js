@@ -15,7 +15,11 @@ export const Search = () => {
     };
 
     axios
-      .post("http://localhost:5000/collectInfo", userInfo)
+      .post("http://localhost:5000/collectInfo", userInfo, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
         console.log(response.data);
       })
@@ -43,7 +47,7 @@ export const Search = () => {
           InputLabelProps={{
             style: { color: "white" },
           }}
-          onSubmit={handleChange}
+          onChange={handleChange}
         />
         <Button onClick={handleSubmit}>Submit</Button>
       </header>
